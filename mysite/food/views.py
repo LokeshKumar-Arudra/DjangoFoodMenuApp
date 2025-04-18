@@ -16,8 +16,11 @@ def item(request):
     return HttpResponse("<h1>This is an Item vIEw</h1>")
 
 def details(request , item_id):
-    item = Items.objects.get(pk=item_id)
+    item = Item.objects.get(pk=item_id)
     context = {
         "item" : item
     }
     return render(request,'food/details.html',context)
+
+def home(request):
+    return HttpResponse("<h1><i>Welcome to Food Menu page</i></h1>")

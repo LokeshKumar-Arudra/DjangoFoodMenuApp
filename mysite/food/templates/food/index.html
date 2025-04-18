@@ -1,5 +1,12 @@
-<ul>
-    {% for item in item_list %}
-        <li>The id : {{item.id}} belongs to {{item.item_name}}</li>
-    {% endfor %}
-</ul>
+{% extends "food/base.html" %} 
+
+    
+    {% block body %}
+        <ul>
+            {% for item in item_list %}
+                <li>
+                    <a href="{% url 'food:details' item.id%}">The id : {{item.id}} belongs to {{item.item_name}}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endblock %}
