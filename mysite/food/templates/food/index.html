@@ -1,7 +1,26 @@
 {% extends "food/base.html" %} 
-
-    
+    <div class="container">
     {% block body %}
+        {% for item in item_list %}
+        <div class="row mb-1 mt-1">
+            <div class='col-md-3 offset-md-2'>
+                <img class="card" height="170px" width="200px" src="{{item.item_image}}" />
+            </div>
+            <div class='col-md-4 offset-md-0'>
+                <h2>{{item.item_name}}</h2>
+                <h4>{{item.item_desc}}</h4>
+                <h5>${{item.item_price}}</h5>
+            </div>
+            <div class='col-md-2'>
+                <a href="{% url 'food:details' item.id%}" class='btn btn-success mt-5'>Details</a>
+            </div>
+        </div>
+        {% endfor %}
+    {% endblock %}
+</div>
+
+
+        {% comment %} this is old code
         <ul>
             {% for item in item_list %}
                 <li>
@@ -9,4 +28,4 @@
                 </li>
             {% endfor %}
         </ul>
-    {% endblock %}
+     {% endcomment %}
