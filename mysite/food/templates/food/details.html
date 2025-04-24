@@ -2,6 +2,18 @@
 
 {% block body %}
 
-{{item.id}} {{item.item_name}} {{item.item_desc}} ${{item.item_price}}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 pt-2">
+           <img style="height: 200px;" src="{{item.item_image}}" class="card" alt=""/>
+        </div>
+        <div class="col-md-6 pt-2">
+            <h2>{{item.item_name}}</h2>
+            <h3>{{item.item_desc}}</h3>
+            <h3><i>${{item.item_price}}</i></h3>
+            <a href="{% url 'food:delete_item' item.id %}">Delete</a>
+        </div>
+    </div>
+</div>
 
 {% endblock %}

@@ -34,12 +34,17 @@ def create_item(request):
     return render(request,'food/item-form.html', {'form' : form})
 
 def update_item(request , id):
-    item = Item.objects.get(pk=id)
-    form = ItemForm(request.POST or None , instance=item)
+    item = Item.objects.get(pk=id) # Model.objects.get()
+    form = ItemForm(request.POST or None , instance=item) # instance is used to pass the prefilled data
     if form.is_valid():
         form.save()
         return redirect('food:index')
-    return render(request,'food/item-form.html', {'item': item, 'form' : form})
+    return render(request,'food/item-form.html', {'item': item, 'form' : form}) 
+    # in this line we are passing "item" as a key value pair to render it in item-form.html 
 
-
-
+def delete_item(request, id):
+    item = Item.objects.get(id=id)
+    if request.method == "POST":
+        item.delete()
+        return redirect('food:index')
+    return render(request,'food/item-delete.html',{'item': item})

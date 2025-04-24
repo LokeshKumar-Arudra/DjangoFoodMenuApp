@@ -13,5 +13,7 @@ urlpatterns = [
     path('food/add/',views.create_item, name='create_item'),
     # update item 8000/food/update/1/
     path('food/update/<int:id>/',views.update_item, name='update_item'),
+    # delete item 8000/food/delete/1/
+    path('food/delete/<int:id>/',views.delete_item,name='delete_item'),
 
 ]
