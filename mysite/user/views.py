@@ -2,6 +2,7 @@ from django.shortcuts import render , redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages 
 from .forms import RegisterForm
+from django.contrib.auth import logout
 # Create your views here.
 
 def register(request):
@@ -11,10 +12,15 @@ def register(request):
             form.save()
             username = form.cleaned_data.get('username')
             messages.success(request, f'Welcome {username}, your account is created')
-            return redirect('food:index')
+            return redirect('login')
     else:
         form = RegisterForm() # this renders an empty form
     return render(request,'user/register.html',{'form': form})
+
+def logout_view(request):
+    logout(request)
+    return render(request,'user/logout.html')
+
 
 
 

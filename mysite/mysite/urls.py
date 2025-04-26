@@ -26,7 +26,8 @@ urlpatterns = [
     path('',include('food.urls')),
     path('register/',user_views.register,name='register'),
     path('login/',authentication_views.LoginView.as_view(template_name='user/login.html'), name='login'), # template_name is used to tell django that we have defined templated in different location
-    path('logout/',authentication_views.LogoutView.as_view(template_name='user/logout.html'), name='logout'),
+    path('logout/',user_views.logout_view, name='logout')
+    # path('logout/',authentication_views.LogoutView.as_view(template_name='user/logout.html'), name='logout'),
     # both LoginView and LogoutView views are inbuilt but they require templates to use.
 ]
 
