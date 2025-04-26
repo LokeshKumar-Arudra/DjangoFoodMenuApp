@@ -17,8 +17,16 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path , include
+from user import views as user_views
+from django.contrib.auth import views as authentication_views
+
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path('',include('food.urls')),
+    path('register/',user_views.register,name='register'),
+    path('login/',authentication_views.LoginView.as_view(template_name='user/login.html'), name='login'), # template_name is used to tell django that we have defined templated in different location
+    path('logout/',authentication_views.LogoutView.as_view(template_name='user/logout.html'), name='logout'),
+    # both LoginView and LogoutView views are inbuilt but they require templates to use.
 ]
+

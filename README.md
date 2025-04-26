@@ -4,6 +4,7 @@ http://127.0.0.1:8000/food/   => Hello World   => html file rendering
 http://127.0.0.1:8000/Item/ => Text
 http://127.0.0.1:8000/admin/ => Super User login
 
+http://127.0.0.1:8000/register/  => used to sigup 
 
 
 git status  => This will show you which files are modified, untracked, or have conflicts.
