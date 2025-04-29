@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -26,7 +27,6 @@ SECRET_KEY = "django-insecure-vk#e^cv%&fv!893phska6e^9#+l$*^woy00qqsjyvh^la7t2%(
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -119,6 +119,9 @@ USE_TZ = True
 STATIC_URL = "static/"
 LOGIN_REDIRECT_URL = "food:index"
 LOGOUT_REDIRECT_URL = None
+LOGIN_URL = 'login'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'pictures')  # this is the location where the images are stored (local directory)
+MEDIA_URL = '/pictures/' # this is the URL that is used to access the images in the browser
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
